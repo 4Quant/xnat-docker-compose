@@ -1,7 +1,6 @@
 version: '2'
 services:
     xnat-web:
-       container-name: xnat-server
        build: ./xnat
        ports:
         - "8081:8080"
