@@ -19,7 +19,7 @@ This repository contains files to bootstrap XNAT deployment. The build creates f
 ## Usage
 
 
-1. Clone the [xnat-docker-compose](https://github.com/NrgXnat/xnat-docker-compose) repository.
+1. Clone the [xnat-docker-compose](https://github.com/4Quant/xnat-docker-compose) repository.
 2. Configurations: The default configuration is sufficient to run the deployment. The following files can be modified if you want to change the default configuration
 
     - **docker-compose.yml**: How the different containers are deployed.
@@ -30,12 +30,6 @@ This repository contains files to bootstrap XNAT deployment. The build creates f
     - **tomcat/xnat-conf.properties**: XNAT database configuration properties. There is a default version
     - **prometheus/prometheus.yaml**: Prometheus configuration
 
-
-3. Download [latest XNAT WAR](https://bintray.com/nrgxnat/applications/XNAT/_latestVersion)
-
-```
-wget --quiet --no-cookies https://bintray.com/nrgxnat/applications/download_file?file_path=xnat-web-1.7.4.war -O webapps/xnat.war
-```
 
 4. Start the system
 
@@ -48,7 +42,7 @@ Note that at this point, if you go to `localhost/xnat` you won't see a working w
 to initialize the database, and you can follow progress by reading the docker compose log of the server:
 
 ```
-docker-compose logs -f --tail=20 xnat-web 
+docker-compose logs -f --tail=20 xnat-web
 Attaching to xnatdockercompose_xnat-web_1
 xnat-web_1    | INFO: Starting Servlet Engine: Apache Tomcat/7.0.82
 xnat-web_1    | Oct 24, 2017 3:17:02 PM org.apache.catalina.startup.HostConfig deployWAR
@@ -126,7 +120,7 @@ docker exec -it $NAME cat /opt/tomcat/logs/catalina.2017-10-24.log
 Bring all the instances down (this will bring down all container and remove all the images) by running
 
 ```
-docker-compose down --rmi all 
+docker-compose down --rmi all
 ```
 
 #### Bring up instances

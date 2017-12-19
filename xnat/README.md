@@ -1,0 +1,2 @@
+# XNAT-Tomcat
+The Dockerfile is for building an instance of the TOMCAT server running XNAT. The parent repository has been modified to include downloading the XNAT war file as part of the Dockerfile building process so it is 'self-contained'. The Dockerfile in this directory can be updated to include a newer version of XNAT: Download [latest XNAT WAR](https://bintray.com/nrgxnat/applications/XNAT/_latestVersion)
