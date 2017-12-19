@@ -10,9 +10,9 @@ RUN apt-get -qq update && \
 
 # Set locales
 RUN locale-gen en_AU.UTF-8
-ENV LANG en_AU.UTF-8  
-ENV LANGUAGE en_AU.UTF-8  
-ENV LC_ALL en_AU.UTF-8 
+ENV LANG en_AU.UTF-8
+ENV LANGUAGE en_AU.UTF-8
+ENV LC_ALL en_AU.UTF-8
 
 # Fix sh
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -67,17 +67,16 @@ ADD xnat-conf.properties /data/xnat/home/config
 
 EXPOSE 8080
 EXPOSE 8009
-VOLUME "/opt/tomcat/webapps"
+VOLUME "/data/xnat/home/plugins"
 ADD setenv.sh /opt/tomcat/bin
 WORKDIR /opt/tomcat
 
-
-#RUN wget --quiet --no-cookies https://bintray.com/nrgxnat/applications/download_file?file_path=xnat-web-1.7.0.war -O /opt/tomcat/xnat-web-1.7.0.war
+RUN wget --quiet --no-cookies https://bintray.com/nrgxnat/applications/download_file?file_path=xnat-web-1.7.4.war -O /opt/tomcat/webapps/xnat.war
 
 # Launch Tomcat
 CMD ["/opt/tomcat/bin/catalina.sh", "run"]
 
-#move xnat war to webapps 
-#RUN mv /opt/tomcat/xnat-web-1.7.0.war /opt/tomcat/webapps
+#move xnat war to webapps
+
 
 
